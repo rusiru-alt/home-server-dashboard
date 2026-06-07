@@ -1,0 +1,3 @@
+# Core web framework and system monitoring dependency.
+Flask
+psutil
