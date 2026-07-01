@@ -15,12 +15,5 @@ def dashboard():
 
 @main.route("/api/status")
 def api_status():
-    """Return placeholder server status data as JSON."""
-    return jsonify(
-        hostname=system_info.get_hostname(),
-        ip_address=system_info.get_ip_address(),
-        cpu_usage=system_info.get_cpu_usage(),
-        ram_usage=system_info.get_ram_usage(),
-        disk_usage=system_info.get_disk_usage(),
-        uptime=system_info.get_uptime(),
-    )
+    """Return current server status data as JSON."""
+    return jsonify(system_info.get_system_status())
