@@ -1,29 +1,65 @@
 {% extends "base.html" %}
-<!-- Starter dashboard content; monitoring cards will be expanded later. -->
 
 {% block title %}Dashboard | Home Server{% endblock %}
 
 {% block content %}
 <section class="dashboard">
-    <h2>Server Status</h2>
-    <p class="intro">Monitoring data will appear here as features are added.</p>
+    <div class="dashboard-heading">
+        <div>
+            <p class="eyebrow">LAN dashboard</p>
+            <h2>Server Status</h2>
+        </div>
+        <p id="last-updated" class="last-updated">Last updated: waiting for data</p>
+    </div>
 
-    <div class="status-grid">
-        <article class="status-card">
+    <p id="status-message" class="status-message status-message--loading" role="status" aria-live="polite">
+        Loading server metrics...
+    </p>
+
+    <div class="metric-grid" aria-label="Server metrics">
+        <article class="metric-card" data-metric-card="hostname">
             <h3>Hostname</h3>
-            <p>Not available yet</p>
+            <p id="metric-hostname" class="metric-value">Loading...</p>
+            <p class="metric-detail">Server name on the local network</p>
         </article>
-        <article class="status-card">
+
+        <article class="metric-card" data-metric-card="local-ip">
+            <h3>Local IP address</h3>
+            <p id="metric-local-ip" class="metric-value">Loading...</p>
+            <p class="metric-detail">LAN address for this device</p>
+        </article>
+
+        <article class="metric-card" data-metric-card="cpu">
             <h3>CPU Usage</h3>
-            <p>Not available yet</p>
+            <p id="metric-cpu" class="metric-value">Loading...</p>
+            <div class="metric-bar" aria-hidden="true">
+                <span id="metric-cpu-bar"></span>
+            </div>
+            <p id="metric-cpu-detail" class="metric-detail">Waiting for processor data</p>
         </article>
-        <article class="status-card">
+
+        <article class="metric-card" data-metric-card="memory">
             <h3>RAM Usage</h3>
-            <p>Not available yet</p>
+            <p id="metric-memory" class="metric-value">Loading...</p>
+            <div class="metric-bar" aria-hidden="true">
+                <span id="metric-memory-bar"></span>
+            </div>
+            <p id="metric-memory-detail" class="metric-detail">Waiting for memory data</p>
         </article>
-        <article class="status-card">
+
+        <article class="metric-card" data-metric-card="disk">
             <h3>Disk Usage</h3>
-            <p>Not available yet</p>
+            <p id="metric-disk" class="metric-value">Loading...</p>
+            <div class="metric-bar" aria-hidden="true">
+                <span id="metric-disk-bar"></span>
+            </div>
+            <p id="metric-disk-detail" class="metric-detail">Waiting for disk data</p>
+        </article>
+
+        <article class="metric-card" data-metric-card="uptime">
+            <h3>Uptime</h3>
+            <p id="metric-uptime" class="metric-value">Loading...</p>
+            <p class="metric-detail">Time since the server last started</p>
         </article>
     </div>
 </section>
